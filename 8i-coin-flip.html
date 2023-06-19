@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>8i Excercise</title>
+  </head>
+  <body>
+
+    <button onclick ="
+
+      playGame('Heads');
+
+      ">
+      Heads
+    </button>
+
+    <button onclick="
+  
+    playGame('Tails');
+    
+    ">
+      tails
+    </button>
+
+    <button onclick="
+    localStorage.removeItem('score1');
+    score.wins = 0;
+    score.losses = 0;
+    console.log('score has been reset');
+    ">
+      reset score
+    </button>
+
+
+    <script>
+
+      let score = JSON.parse(localStorage.getItem('score1')) || {
+        wins : 0,
+        losses : 0
+      };
+    
+      console.log(score);
+
+      function playGame(guess){
+        const randomNumber = Math.random();
+        let result = '';
+        if(randomNumber < 0.5){
+          result ='Heads';
+        } else {
+          result = 'Tails';
+        }
+
+        if (guess === result){
+         console.log('You win');
+         score.wins += 1;
+        } else {
+         console.log('You lose');
+         score.losses += 1;
+        }
+        localStorage.setItem('score1', JSON.stringify(score));
+        console.log(score);
+
+        
+
+      }
+
+     
+
+
+
+   
+
+   
+
+  // let outcome = guess === result ? 'You win' : 'You lose';
+  // console.log(outcome);
+
+    </script>
+  </body>
+</html>

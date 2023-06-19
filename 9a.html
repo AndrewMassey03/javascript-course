@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>9a Excercise</title>
+  </head>
+  <body>
+    <button class="js-9a-button">9a</button>
+    <button class="js-9b-button">9b</button>
+    <p></p>
+
+    <button class="js-heads-button" onclick="
+      result('heads');
+    ">heads</button>
+    <button class="js-tails-button" onclick="
+      result('tails');
+    ">tails</button>
+
+    <p class="js-result"></p>
+
+    <input class="js-name-input" placeholder="Name" onkeydown="
+      handleNameKeyDown(event);
+    ">
+    <button class="js-submit-button" onclick="
+      nameShow();
+    ">Submit</button>
+    <p class="js-name"></p>
+
+    <script>
+      console.log(document.querySelector('.js-9a-button'));
+      document.querySelector('.js-9b-button').innerHTML = '9B done';
+      console.log(document.querySelector('.js-9b-button'));
+
+      function result(guess){
+        document.querySelector('.js-result').innerHTML = `You chose : ${guess}`;
+
+      }
+
+     
+      function nameShow(){
+        const name = document.querySelector('.js-name-input').value;
+        document.querySelector('.js-name').innerHTML = `Your name is : ${name}`;
+      }
+
+      function handleNameKeyDown(event){
+        if(event.key === 'Enter'){
+          nameShow();
+        }
+      }
+
+
+    </script>
+  </body>
+</html>
