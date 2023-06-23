@@ -20,29 +20,53 @@ let intervalID = '';
 
 //const autoPlay = () => {};
 
+let lastClickedButton = 'js-rock-button';
+
+function borderColor(classTag,lastClicked){
+
+  document.querySelector(`.${lastClicked}`).className = `move-button ${lastClicked}`;
+
+  document.querySelector(`.${classTag}`).className = `border-color move-button ${classTag}`;
+}
+
+
 function autoPlay() {
+  const autoButton = document.querySelector('.js-auto');
   if(!isAutoPlaying){
      intervalID = setInterval(() => {
       const playerMove1 = pickComputerMove();
       playGame(playerMove1);
     }, 1000);
     isAutoPlaying = true;
+    autoButton.innerText = "Stop Auto Play";
+    autoButton.className = "js-auto stop-play-button";
   } else {
     clearInterval(intervalID);
     isAutoPlaying = false;
+    autoButton.innerText = "Auto Play";
+    autoButton.className = "js-auto auto-play-button";
   }
 }
 
 document.querySelector('.js-rock-button').addEventListener('click', () => {
   playGame('rock');
+  borderColor('js-rock-button',lastClickedButton);
+  lastClickedButton = 'js-rock-button';
+  
 });
 
 document.querySelector('.js-paper-button').addEventListener('click', () => {
   playGame('paper');
+  borderColor('js-paper-button',lastClickedButton);
+  lastClickedButton = 'js-paper-button';
+  
 });
 
 document.querySelector('.js-scissors-button').addEventListener('click', () => {
   playGame('scissors');
+  borderColor('js-scissors-button',lastClickedButton);
+  lastClickedButton = 'js-scissors-button';
+  
 });
 
 document.body.addEventListener('keydown', (event) => {

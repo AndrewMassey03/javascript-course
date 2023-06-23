@@ -2,6 +2,9 @@ body{
   background-color: rgb(25,25,25);
   color: white;
   font-family: Arial;
+  zoom: 2;
+  margin-left: 32%;
+  
 }
 
 .title{
@@ -13,7 +16,7 @@ body{
   height: 50px;
 }
 
-.move-button{
+.move-button {
   background-color: transparent;
   border: 3px solid white;
   width : 120px;
@@ -21,6 +24,10 @@ body{
   border-radius: 60px;
   margin-right: 10px;
   cursor: pointer;
+}
+
+.border-color {
+  border-color: green;
 }
 
 .result{
@@ -34,10 +41,20 @@ body{
 }
 
 .reset-score-button,
-.auto-play-button {
+.auto-play-button,
+.stop-play-button {
   background-color: white;
   border: none;
   padding: 8px 15px;
   font-size: 15px;
   cursor : pointer;
 }
+
+.auto-play-button {
+  background-color: green;
+}
+
+.stop-play-button {
+  background-color: red;
+}
+
